@@ -1,0 +1,14 @@
+form  bs4  import BeautifulSoup
+from  urllib.request import urlopen
+
+url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=c454fe3df4ff3d0d7e6a009245f8c9ad"
+html = urlopen(url)
+
+soup = BeautifulSoup (html,  "html.paser")
+type(soup)
+
+all_links =soup.findAll('div', {'class': 'quote' })
+str_cells = str(all_links)
+cleartext = BeautifulSoup(str_cells, "html,paser").grt_text()
+
+print (cleartext)
